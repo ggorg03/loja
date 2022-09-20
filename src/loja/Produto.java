@@ -25,24 +25,28 @@ public class Produto {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+	
 	public double getPreco() {
 		return preco;
 	}
 	public void setPreco(double preco) {
 		this.preco = preco;
 	}
+	
 	public String getMarca() {
 		return marca;
 	}
 	public void setMarca(String marca) {
 		this.marca = marca;
 	}
+	
 	public String getDescricao() {
 		return descricao;
 	}
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+	
 	public Date getDataFabricacao() {
 		return dataFabricacao;
 	}

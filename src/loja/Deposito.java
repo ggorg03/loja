@@ -26,7 +26,7 @@ public class Deposito {
 		return produtos.size();
 	}
 	
-	static public boolean depositoVazio() {
+	static public boolean ehVazio() {
 		return produtos.isEmpty();
 	}
 	

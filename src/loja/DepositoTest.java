@@ -57,4 +57,51 @@ public class DepositoTest extends TestCase {
 		if(Deposito.getProdutos().size() != 0)
 			assertTrue(Deposito.getProdutos().get(0) instanceof Produto);
 	}
+	
+	public void testAdicionaProdutosDuraveis() {
+		// Pega o valor inical do depósito
+		int qtdProdutos = Deposito.getQuantidadeProdutos();
+		// inicializando o produto
+		String nome = "bicicleta";
+		double preco = 670.0;
+		String marca = "caloi";
+		String descricao = "A bike é ruim, mas é melhor do que gastar com gasolina";
+		int durabilidade = 12;
+		// setando a data de fabricação do produto
+		Calendar calendar = Calendar.getInstance();
+		calendar.set(2022, 1, 28);
+		Date dataFabricacao = calendar.getTime();
+		// instanciando produto
+		ProdutoDuravel produtoDuravel = new ProdutoDuravel(nome, preco, marca, descricao, dataFabricacao, durabilidade);
+		// adicionando produto no estoque
+		Deposito.adicionarProduto(produtoDuravel);
+		// Checando se produto foi adicionado
+		assertEquals(Deposito.getQuantidadeProdutos(), qtdProdutos + 1); 		// testamos se temos um produto a mais no desposito
+		assertTrue(Deposito.getProdutos().contains(produtoDuravel));		    // checando se produto foi adicionando
+	}
+	
+	public void testAdicionaProdutosNaoDuraveis() {
+		// Pega o valor inical do depósito
+		int qtdProdutos = Deposito.getQuantidadeProdutos();
+		// inicializando o produto
+		String nome = "bicicleta";
+		double preco = 670.0;
+		String marca = "caloi";
+		String descricao = "A bike é ruim, mas é melhor do que gastar com gasolina";
+		String genero = "Alimento";
+		// setando a data de fabricação do produto
+		Calendar calendar = Calendar.getInstance();
+		calendar.set(2022, 1, 28);
+		Date dataFabricacao = calendar.getTime();
+		// setando a data de validade do produto
+		calendar.set(2022, 3, 18);
+		Date dataValidade = calendar.getTime();
+		// instanciando produto
+		ProdutoNaoDuravel produtoNaoDuravel = new ProdutoNaoDuravel(nome, preco, marca, descricao, dataFabricacao, dataValidade, genero);
+		// adicionando produto no estoque
+		Deposito.adicionarProduto(produtoNaoDuravel);
+		// Checando se produto foi adicionado
+		assertEquals(Deposito.getQuantidadeProdutos(), qtdProdutos + 1); 		// testamos se temos um produto a mais no desposito
+		assertTrue(Deposito.getProdutos().contains(produtoNaoDuravel));		    // checando se produto foi adicionando
+	}
 }

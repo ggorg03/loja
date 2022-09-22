@@ -5,16 +5,21 @@ import java.util.List;
 
 public class Deposito {
 	static private List<Produto> produtos;
-	{
+	
+	static{
 		produtos = new ArrayList<Produto>();
+	}
+	
+	static public List<Produto> getProdutos() {
+		return produtos;
 	}
 
 	static public void adicionarProduto(Produto produto) {
 		produtos.add(produto);
 	}
 	
-	static public Produto removerProduto(Produto produto) {
-		return null;
+	static public boolean removerProduto(Produto produto) {
+		return produtos.remove(produto);
 	}
 	
 	static public int getQuantidadeProdutos() {
@@ -22,10 +27,21 @@ public class Deposito {
 	}
 	
 	static public boolean depositoVazio() {
-		return true;
+		return produtos.isEmpty();
 	}
 	
 	static public Produto produtoMaiorPreco() {
-		return null;
+		if(produtos.isEmpty())
+			return null;
+		
+		Produto produtoMaiorPreco = produtos.get(0);
+		
+		for(Produto produto : produtos) {
+			if(produto.getPreco() < produtoMaiorPreco.getPreco()) {
+				produtoMaiorPreco = produto;
+			}
+		}
+		
+		return produtoMaiorPreco;
 	}
 }

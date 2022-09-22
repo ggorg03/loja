@@ -1,2 +1,3 @@
 module loja {
+	requires junit;
 }

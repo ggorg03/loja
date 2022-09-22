@@ -1,6 +1,7 @@
 package loja;
 
 import java.util.Date;
+import java.util.Objects;
 
 public class Produto {
 	private String nome;
@@ -52,5 +53,22 @@ public class Produto {
 	}
 	public void setDataFabricacao(Date dataFabricacao) {
 		this.dataFabricacao = dataFabricacao;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(marca, nome);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Produto other = (Produto) obj;
+		return Objects.equals(marca, other.marca) && Objects.equals(nome, other.nome);
 	}
 }

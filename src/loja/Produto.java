@@ -61,6 +61,11 @@ public class Produto {
 	}
 
 	@Override
+	public String toString() {
+		return "Produto [nome=" + nome +  ", marca=" + marca + ", preco=" + preco + "]";
+	}
+
+	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;

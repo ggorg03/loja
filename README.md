@@ -1,2 +1,2 @@
 # loja
-Projeto prático da aula de LP2 para praticar herança
+Projeto prático para praticar herança em POO da disciplina de **Linguagens de Programação II** da **UFRN** 
